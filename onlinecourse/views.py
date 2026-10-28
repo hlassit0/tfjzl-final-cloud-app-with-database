@@ -85,7 +85,7 @@ class CourseListView(generic.ListView):
 
 class CourseDetailView(generic.DetailView):
     model = Course
-    template_name = 'onlinecourse/course_detail_bootstrap.html'
+    template_name = 'onlinecourse/course_details_bootstrap.html'
 
 
 def enroll(request, course_id):
@@ -195,7 +195,9 @@ def show_exam_result(request, course_id, submission_id):
         'course': course,
         'choice': choices,
         'choices': choices,
+        'selected_ids': selected_ids,
         'grade': grade,
+        'possible': total_grade,
         'total_grade': total_grade,
         'passed': grade > 80,
         'question_results': question_results,
