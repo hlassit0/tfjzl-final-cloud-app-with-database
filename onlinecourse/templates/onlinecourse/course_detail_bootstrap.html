@@ -61,7 +61,7 @@
                     </div>
                     <div id="exam" class="collapse">
                         <div class="card-body">
-                            <form id="questionform" action="" method="post">
+                            <form id="questionform" action="{% url 'onlinecourse:submit' course.id %}" method="post">
                                 {% csrf_token %}
                                 {% for question in course.question_set.all %}
                                     <div class="card mt-1">
