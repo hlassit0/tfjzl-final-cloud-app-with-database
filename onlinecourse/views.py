@@ -168,18 +168,37 @@ def show_exam_result(request, course_id, submission_id):
         enrollment__course=course,
     )
     choices = submission.choices.select_related('question')
-    selected_ids = list(choices.values_list('id', flat=True))
+    selected_ids = set(choices.values_list('id', flat=True))
 
     grade = 0
-    for question in Question.objects.filter(course=course):
-        if question.is_get_score(selected_ids):
+    total_grade = 0
+    question_results = []
+    questions = Question.objects.filter(course=course).prefetch_related('choice_set')
+    for question in questions:
+        total_grade += question.grade
+        question_score = question.is_get_score(selected_ids)
+        if question_score:
             grade += question.grade
+        question_results.append({
+            'question': question,
+            'score_awarded': question.grade if question_score else 0,
+            'choices': [
+                {
+                    'choice': choice,
+                    'selected': choice.id in selected_ids,
+                }
+                for choice in question.choice_set.all()
+            ],
+        })
 
     context = {
         'course': course,
         'choice': choices,
         'choices': choices,
         'grade': grade,
+        'total_grade': total_grade,
+        'passed': grade > 80,
+        'question_results': question_results,
     }
     return render(request, 'onlinecourse/exam_result_bootstrap.html', context)
 
