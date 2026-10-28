@@ -1,0 +1,20 @@
+Question 1 — Task 1
+https://github.com/hlassit0/tfjzl-final-cloud-app-with-database/blob/main/onlinecourse/models.py
+
+Question 2 — Task 2
+https://github.com/hlassit0/tfjzl-final-cloud-app-with-database/blob/main/onlinecourse/admin.py
+
+Question 3 — Task 3
+Upload: 03-admin-site.png
+
+Question 4 — Task 4
+https://github.com/hlassit0/tfjzl-final-cloud-app-with-database/blob/main/onlinecourse/templates/onlinecourse/course_detail_bootstrap.html
+
+Question 5 — Task 5
+https://github.com/hlassit0/tfjzl-final-cloud-app-with-database/blob/main/onlinecourse/views.py
+
+Question 6 — Task 6
+https://github.com/hlassit0/tfjzl-final-cloud-app-with-database/blob/main/onlinecourse/urls.py
+
+Question 7 — Task 7
+Upload: 07-final.png
